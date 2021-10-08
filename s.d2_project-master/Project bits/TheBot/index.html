@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Octavia: Get the Weather</title>
+	<link rel="icon" href="img/OctaviaPrime.png" />
+	<link rel="stylesheet" href="style.css" />
+</head>
+<script>
+	function intro() {
+		const str = "Hi, I'm Octavia. Bringing you weather, from all across Ireland by County."
+		textToSpeech(str);
+	}
+</script>
+
+<body>
+<header>
+	<h2>Hi, I'm Octavia.</h2>
+	<h3>Bringing you weather, from all across Ireland by County.</h3>
+</header>
+	<div id="container" class="container">
+		<div id="chat" class="chat">
+			<div id="messages" class="messages"></div>
+			<input id="input" type="text" placeholder="Type Here..." autocomplete="off" autofocus="true" />
+		</div>
+		<img id="octavia" src="img/Octavia.png" alt="Robot cartoon" height="500vh" onclick="intro()">
+	</div>
+</body>
+<script src="xhr.js"></script>
+<script type="text/javascript" src="index.js" ></script>
+<script type="text/javascript" src="constants.js" ></script>
+<script type="text/javascript" src="speech.js" ></script>
+
+</html>

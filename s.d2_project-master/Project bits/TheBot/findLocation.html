@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="string">
+<button onclick="result()">Click to print location</button>
+<p id="response-t"></p>
+</body>
+<script type="text/javascript" src="constants.js" ></script>
+<script>
+
+    const resp = document.querySelector('#response-t');
+    function result() {
+        const string = document.querySelector('#string');
+       resp.innerHTML = find_location(string.value);
+    }
+
+    function find_location(string) {
+        let rgxp = "";
+
+        for(let i=0; i < counties.length; i++) {
+            if (!Array.isArray(counties[i])) {
+                rgxp = new RegExp(counties[i], "i");
+                if ((string).match(rgxp)) {
+                    return rgxp.source;
+                }
+            } else {
+                for (const key in counties[i]) {
+                    rgxp = new RegExp(counties[i][key], "i");
+                    if ((string).match(rgxp)) {
+                        return counties[i][0];
+                    }
+                }
+            }
+        }
+        return "nomatch";
+    }
+</script>
+</html>

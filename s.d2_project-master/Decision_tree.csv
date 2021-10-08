@@ -1,0 +1,52 @@
+﻿Frame 1
+When A user asks the Bot for the Weather Location of their destination.  The Bots then return with the current weather and Ideas of Clothes to take along
+Take dresses with cotton or linen
+Sandals/Light Trainers
+If Sunny
+Face cap/Sun Hats
+Sunny
+An umbrella
+If Not
+Prepare for Alternative Weather
+Else
+Do Not Attempt the Location for Holiday
+Take Base Layer of Clothes designed to keep you dry
+"Woolen, Longwear"
+If Snowy
+Fleece or Synthetic Gabrics
+Snowy
+Winter Boots
+If not
+Prepare for other weather available
+Else
+Avoid the City
+Take a good trench clothes
+If Cloudy
+Blazers/Leather Jackets
+Bots Return this Weather Information According to the City Input by the User(s)
+Weather
+Hiking boots
+Cloudy
+If Not
+Prepare for alternative weather
+Else
+Avoid the Location
+Take Warm Jackets/Trench Coats
+Layers/warm wooden Jerseys
+If Windy
+Simple plain Tees/Long sleeves
+Windy
+Firm Shoes
+If Not
+Prepare for the Alternative weather
+Else
+Avoid the Location
+Take Rain Jackets
+If Rainy
+Good hiking boots
+Rainy
+Waterproof bags
+If Not
+Prepare For the Alternative Weather
+Else
+Avoid/Suspend the Location

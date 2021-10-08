@@ -1,0 +1,116 @@
+<html lang="en">
+<style>
+   
+    h1, h2 {
+        text-align: center;
+    }
+    p {
+        line-height: 1.5rem;
+    }
+    table {
+  font-family: arial, sans-serif;
+  border-collapse: separate;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid rgb(3, 22, 22);
+  text-align: left;
+  padding: 8px;
+}
+
+tr {
+  background-color: azure;
+}
+</style>
+<head>
+    <h1>Gantt Chart</h1>
+    <p><h2><b>ChatBot Project</b></h2></p>
+    <table>
+        <tr>
+            <th><b>Activities</b></th>
+            <th><b>Time Allocation</b></th>
+            <th><b>Supervisor</b></th>
+        </tr>
+        <tr>
+            <td>Research (Picking API and Language)</td>
+            <td>5 Days</td>
+            <td>All</td>
+        </tr>
+        <tr>
+            <td>Chatbot Logic (How it interacts)</td>
+            <td>9 Days</td>
+            <td>Damilare </td>
+        </tr>
+        <tr>
+            <td>GUI design</td>
+            <td>14 Days</td>
+            <td>All</td>
+        </tr>
+        <tr>
+            <td>Coding (Implementing the design)</td>
+            <td>30 Days</td>
+            <td>Kennedy</td>
+        </tr>
+        <tr>
+            <td>Testing (running in parallel with Coding)</td>
+            <td>15 Days</td>
+            <td>Janaina</td>
+        </tr>
+        <tr>
+            <td>Any Additional Features? (Loops into coding if any)</td>
+            <td>11 Days</td>
+            <td>All</td>
+        </tr>
+    </table>
+</head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['gantt'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function daysToMilliseconds(days) {
+            return days * 24 * 60 * 60 * 1000;
+        }
+
+        function drawChart() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Task ID');
+            data.addColumn('string', 'Task Name');
+            data.addColumn('date', 'Start Date');
+            data.addColumn('date', 'End Date');
+            data.addColumn('number', 'Duration');
+            data.addColumn('number', 'Percent Complete');
+            data.addColumn('string', 'Dependencies');
+
+            data.addRows([
+                ['Research', 'Research' , 
+                    new Date(2021, 2, 20), new Date(2021, 2, 25), null, 100, null],
+                ['Logic', 'Chatbot Logic',
+                    new Date(2021, 2, 29), new Date(2021, 3, 7), daysToMilliseconds(1), 100, null],
+                ['Design', 'GUI Design',
+                    new Date(2021, 3, 9), new Date(2021, 3, 23), daysToMilliseconds(1), 100, 'Logic'],
+                ['Coding', 'Coding',
+                    new Date(2021, 3, 29), new Date(2021, 4, 29), daysToMilliseconds(1), 50, 'Logic,Design'],
+                ['Testing', 'Testing Code',
+                    new Date(2021, 4, 14), new Date(2021, 4, 29), daysToMilliseconds(1), 50, 'Coding'],
+                ['Additional Features', 'Extras',
+                    new Date(2021, 4, 31), new Date(2021, 5, 11), daysToMilliseconds(5), 100, 'Coding,Testing']
+            ]);
+
+            var options = {
+                height: 275
+            };
+
+            var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+        }
+    </script>
+<body>
+   
+    <div id="chart_div"></div>
+</body>
+
+</html>

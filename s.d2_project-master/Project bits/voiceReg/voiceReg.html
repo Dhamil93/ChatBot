@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test for VOICE RECOGNITION</title>
+    <style>
+        /*#instruction {*/
+        /*    width: 200px;*/
+        /*    height: 50px;*/
+        /*    background-color: lightskyblue;*/
+        /*    border: black 2em;*/
+        /*    display: flex;*/
+        /*    justify-content: center;*/
+        /*    margin: auto auto 15px auto;*/
+        /*}*/
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        #mic-open {
+            width: 200px;
+            height: 50px;
+            background-color: lightskyblue;
+            border: black 2em;
+            display: flex;
+            justify-content: space-around;
+            vertical-align: middle;
+            margin: auto;
+        }
+
+        a {
+            text-decoration: none;
+
+            margin: auto;
+            font-family: Calibri;
+            padding: 10px 15px;
+        }
+
+
+        #instruction {
+            text-decoration: none;
+            text-align: center;
+            background-color: lightskyblue;
+            margin-bottom: 0.5em;
+            padding: 20px;
+            font-family: Calibri;
+        }
+
+        #voice2text {
+            font-size: 3rem;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <a id="instruction" href="#">INSTRUCTION</a>
+
+<script>
+
+    const synth = window.speechSynthesis;
+    const intro = "Hello. Click the button to start recording and press Space bar to stop.";
+    const instruction = document.querySelector('#instruction');
+
+    const textToSpeech = (string) => {
+        let voice = new SpeechSynthesisUtterance(string);
+        voice.text = string;
+        voice.lang = "en";
+        voice.lang = "en";
+        voice.volume = 1;
+        voice.rate = 1;
+        voice.pitch = 1; // Can be 0, 1, or 2
+        synth.speak(voice);
+    }
+
+    instruction.onclick = () => {
+        console.log('bot speaking');
+        setTimeout(textToSpeech(intro), 2000);
+    };
+
+</script>
+
+
+<div id="mic-open">
+    <a id="mic" href="#">Open Microphone</a>
+</div>
+
+<div>
+    <p id="voice2text"></p>
+</div>
+<script src="voiceReg.js"></script>
+</body>
+</html>
